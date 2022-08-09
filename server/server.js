@@ -4,7 +4,7 @@ const cors = require("cors")
 
 const PORT = 3000;
 
-
+app.use(express.urlencoded({ extended: true }))
 app.use(cors())
 app.use(express.json());
 

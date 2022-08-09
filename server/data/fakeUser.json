@@ -1,0 +1,37 @@
+{
+    "11111": {
+        "username": "Angel",
+        "first_name": "Angel",
+        "last_name": "Cortes",
+        "password": "1234",
+        "email": "angcor43@gmail.com"
+    },
+    "11112": {
+        "username": "Matt",
+        "first_name": "Matthew",
+        "last_name": "Yeon",
+        "password": "2345",
+        "email": "m.jiwooyeon@gmail.com"
+    },
+    "11113": {
+        "username": "Jace",
+        "first_name": "Jace",
+        "last_name": "Crowe",
+        "password": "3456",
+        "email": "jace.crowe@gmail.com"
+    },
+    "11114": {
+        "username": "Dennis",
+        "first_name": "Dennis",
+        "last_name": "Ly",
+        "password": "5678",
+        "email": "dennishly681@gmail.com"
+    },
+    "11115": {
+        "username": "Johnny",
+        "first_name": "Johnny",
+        "last_name": "Chan",
+        "password": "4567",
+        "email": "Johnnychan2011@gmail.com"
+    }
+}

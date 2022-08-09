@@ -19,5 +19,5 @@ router.delete('/', taskController.deleteTask, taskController.getTasks, (req, res
     return res.status(200).json(res.locals.taskData);
 });
 
-// EXPORT THE ROUTER
+
 module.exports = router;

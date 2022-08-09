@@ -1,9 +1,10 @@
 const fs = require('fs');
 const path = require('path');
+const userController = require('../server/controllers/userControllers')
 
-const testJsonFile = path.resolve(__dirname, '../server/data');
+const testJsonFile = path.resolve(__dirname, '../server/data/fakeUser.json');
 
-xdescribe('db unit tests', () => {
+describe('db unit tests', () => {
   beforeAll((done) => {
     fs.writeFile(testJsonFile.JSON.stringify([]), () => {
       db.reset();

@@ -7,7 +7,6 @@ const cors = require("cors")
 
 const PORT = 3000;
 const authenticationController = require('./controllers/authenticationControllers');
-const userRoutes = require('./routes/userRoutes');
 const taskRoutes = require('./routes/taskRoutes');
 const projectRoutes = require('./routes/projectRoutes');
 

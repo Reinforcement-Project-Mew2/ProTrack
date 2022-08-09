@@ -16,7 +16,7 @@ const projectRoutes = require('./routes/projectRoutes');
 // const mongoURI = process.env.NODE_ENV === 'test' ? 'mongodb://localhost/unit11test' : 'mongodb://localhost/unit11dev';
 // mongoose.connect(mongoURI);
 
-
+app.use(express.urlencoded({ extended: true }))
 app.use(cors())
 app.use(express.json());
 app.use(express.urlencoded());

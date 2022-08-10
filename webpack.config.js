@@ -1,49 +1,52 @@
-const HTMLWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
+const webpack = require('webpack');
+const dotenv = require('dotenv').config({
+  path: path.join(__dirname, '.env')
+});
+const HTMLWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = { 
-    entry: "./src/index.tsx",
-    output: {
-        path: path.join(__dirname, '/dist'),
-        filename: 'bundle.js',
-        publicPath: '/',
+  // mode: process.env.NODE_ENV,
+  entry: "./src/index.tsx",
+  output: {
+    path: path.join(__dirname, '/dist'),
+    filename: 'bundle.js',
+  },
+  devServer: {
+    static: {
+      publicPath: '/dist',
+      directory: path.resolve(__dirname, 'dist'),
     },
-    devServer: {
-        historyApiFallback: true,
-        static: {
-            directory: path.resolve(__dirname,'dist'),
-        }
-    },
-    module: {
-        rules: [
-            {
-                test: /\.jsx?$/,
-                exclude: /node_modules/,
-                loader: 'babel-loader'
-                },
-                {
-                test: /\.tsx?$/,
-                use: 'ts-loader',
-                exclude: /node_modules/,
-            },
-                // use: {
-                //     loader: 'babel-loader',
-                //     options: {
-                //         presets: ['@babel/preset-env', '@babel/preset-react']
-                //     }
-                // }
-            {
-                test:/\.s?css$/,
-                use: ["style-loader", "css-loader", "sass-loader"],
-            }
-        ]
-    },
-    resolve: {
-        extensions: ['.ts', '.tsx', '.jsx', '.js', ".css", ".scss"],
+    proxy: {
+      '/api': { target: 'http://localhost:3000/' },
+    }
+  },
+  module: {
+    rules: [
+      {
+        test: /\.jsx?$/,
+        exclude: /node_modules/,
+        loader: 'babel-loader',
+        options: { presets: ['@babel/preset-react', '@babel/preset-env'] },
       },
-    plugins: [
-        new HTMLWebpackPlugin({
-            template: './index.html'
-        })
-    ]
+      {
+        test: /\.tsx?$/,
+        use: 'ts-loader',
+        exclude: /node_modules/,
+      },
+      {
+        test:/\.s?css$/,
+        use: ["style-loader", "css-loader", "sass-loader"],
+      }
+      ]
+  },
+  resolve: {
+    extensions: ['.ts', '.tsx', '.jsx', '.js', ".css", ".scss"],
+  },
+  plugins: [
+    new HTMLWebpackPlugin({ template: './src/index.html' }),
+    new webpack.DefinePlugin({
+      'process.env': dotenv.parsed,
+    }),
+  ]
 }

@@ -7,6 +7,17 @@
   "target": "es5",
   "jsx": "react",
   "allowJs": true,
-  "moduleResolution": "node"
+  "checkJs": false,
+  "types" : [
+    "node"
+  ],
+  "moduleResolution": "node",
+  "baseUrl": ".",
+  "paths": {
+      "*": [
+        "*",
+        "generated/*"
+      ]
+    }
   }
 }

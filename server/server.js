@@ -4,18 +4,13 @@ const cookieParser = require('cookie-parser');
 const mongoose = require('mongoose');
 const cors = require("cors");
 
-const { cookieController, sessionController } = require('./controllers/authenticationControllers');
-// const userRoutes = require('./routes/userRoutes');
-// const taskRoutes = require('./routes/taskRoutes');
-// const projectRoutes = require('./routes/projectRoutes');
-
-const PORT = 3000;
 const app = express();
+const PORT = 3000;
 
-const authenticationController = require('./controllers/authenticationControllers');
 const taskRoutes = require('./routes/taskRoutes');
 const projectRoutes = require('./routes/projectRoutes');
 const userRoutes = require('./routes/userRoutes');
+const { cookieController, sessionController } = require('./controllers/authenticationControllers');
 
 app.use(cors())
 app.use(cookieParser());
@@ -23,15 +18,15 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use('/src', express.static(path.resolve(__dirname, '../src')));
 
-app.use("/project", projectRoutes);
-app.use("/tasks", taskRoutes);
-app.use("/signIn", userRoutes);
-
 // Create a new Project 
 app.get('/', cookieController.setCookie, (req, res) => {
   res.sendFile(path.resolve(__dirname, '../index.html'))
 });
  
+app.use("/project", projectRoutes);
+app.use("/tasks", taskRoutes);
+app.use("/user", userRoutes);
+
 
 /**
  * *  Option 1) Creates a new user (Signup)

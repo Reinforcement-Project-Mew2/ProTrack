@@ -1,7 +1,7 @@
 import * as React from 'react';
 import '../styles.scss';
 
-const tasklist = () => {
+const tasklist = (props:any) => {
     return (
 <div>
     <div className = "tasklist">

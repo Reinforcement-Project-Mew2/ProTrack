@@ -4,7 +4,6 @@ require('dotenv').config();
 const MONGO_URI = process.env.MONGO_DB_URI;
 
 mongoose.connect(MONGO_URI, {
-  userNewUrlParser: true,
   useUnifiedTopology: true,
   dbName: 'proTracks_user'
 })
@@ -19,7 +18,7 @@ const userSchema = new Schema({
       first_name: { type: String, required: true },
       last_name: { type: String, required: true },
       password: { type: String, required: true },
-      created_on: { type : Date, required: true, default: Date.now},
+      created_on: { type : Date, required: true, default: Date.now },
       email: { type: String, required: true }
     }   
 });

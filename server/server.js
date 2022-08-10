@@ -1,13 +1,10 @@
-import { Request, Response, NextFunction } from "express";
-import { ServerError } from "./types";
-
 const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const mongoose = require('mongoose');
 const cors = require("cors");
 
-const authenticationController = require('./controllers/authenticationControllers');
+const { cookieController, sessionController } = require('./controllers/authenticationControllers');
 const userRoutes = require('./routes/userRoutes');
 const taskRoutes = require('./routes/taskRoutes');
 const projectRoutes = require('./routes/projectRoutes');
@@ -26,12 +23,39 @@ app.use(express.urlencoded({ extended: true }));
 app.use('/src', express.static(path.resolve(__dirname, '../src')));
 
 
+console.log('SERVER WORKING!');
+// Create a new Project 
+app.get('/', cookieController.setCookie, (req, res) => {
+  res.sendFile(path.resolve(__dirname, '../index.html'))
+});
+ 
+/**
+ * *  Create a new User (SignUp)
+ *    Request:  POST
+ *    From:     Create User Page
+ *    To: '/signup' -> (200) '/secret' | (404) global err -> 
+ *    Body:     username, first_name, last_name, password, email, (created_on)
+ * 
+ * *  User OAuth to access create an account
+ *  
+ */
+
+/**
+ * *  Create a new User (Login)
+ *    Request:  POST
+ *    From:     Login Page
+ *    To:       '/signup' -> (200) '/secret' | (404) global err -> 
+ *    Body:     username, first_name, last_name, password, email, (created_on)
+ */
+
+
+
 // catch-all route handler for any requests to an unknown route
-app.use((req: Request, res: Response) => res.status(404).send('Page does not exist.'));
+app.use((req, res) => res.status(404).send('Page does not exist.'));
 
 // global error handler
-app.use((err: ServerError, req: Request, res: Response, next: NextFunction) => {
-  const defaultErr:ServerError = {
+app.use((err, req, res, next) => {
+  const defaultErr = {
     log: 'Express error handler caught unknown middleware error',
     status: 500,
     message: { err: 'An error occurred' },

@@ -21,3 +21,15 @@ describe('db unit tests', () => {
     });
   });
 });
+
+
+
+/**
+ ** Authentication Controller
+ *  1) If the cookie is properly created through 'setCookie' when the user access
+ *    '/' route (Check cookie name & value).
+ *    (Manual Checking: Chrome Dev Tool -> "Application" tab)
+ * 
+ *  2) 
+ * 
+ */

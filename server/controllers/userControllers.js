@@ -1,4 +1,4 @@
-const { models } = require('mongoose');
+// const { models } = require('mongoose');
 const User = require('../models/userModel');
 
 const createErr = (errInfo) => {
@@ -12,7 +12,7 @@ const createErr = (errInfo) => {
 const userController = {};
 
 userController.createUser = (req, res, next) => {
-    const { username, password, first_name, last_name, email } = req.body;
+    const { username, password, first_name, last_name, email, user_id } = req.body;
     User.create({
         username: username,
         password: password,
@@ -21,7 +21,7 @@ userController.createUser = (req, res, next) => {
         email: email,
     })
     .then(data => {
-    res.locals.user = data.user_id;
+    res.locals.user = data;
     next();
     })
     .catch(err => {
@@ -31,12 +31,12 @@ userController.createUser = (req, res, next) => {
 
 userController.verifyUser = (req, res, next) => {
     const { username, password } = req.body;
-    User.find({username, password}, (err, user) => {
+    User.findOne({username, password}, (err, user) => {
         if (err) return next(createErr(err));
-        if(user[0] === undefined){
+        if(user === undefined){
             res.redirect('/signup');
         } else {
-        res.locals.user = user._id;
+        res.locals.user = user;
         return next();
         }
     })

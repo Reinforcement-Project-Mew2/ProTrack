@@ -11,13 +11,13 @@ router.post('/', taskController.createTask, (req, res) => {
     return res.status(200).json(res.locals.newTask);
 });
 
-router.post('/', taskController.updateTask, (req, res) => {
-    return res.status(200).json(res.locals.updatedTask);
-});
+// router.post('/', taskController.updateTask, (req, res) => {
+//     return res.status(200).json(res.locals.updatedTask);
+// });
 
-router.delete('/', taskController.deleteTask, taskController.getTasks, (req, res) => {
-    return res.status(200).json(res.locals.taskData);
-});
+// router.delete('/', taskController.deleteTask, taskController.getTasks, (req, res) => {
+//     return res.status(200).json(res.locals.taskData);
+// });
 
 
 module.exports = router;

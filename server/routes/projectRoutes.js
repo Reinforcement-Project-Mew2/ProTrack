@@ -11,13 +11,13 @@ router.post('/', projectController.createProject, (req, res) => {
     return res.status(200).json(res.locals.newProject);
 });
 
-router.post('/', projectController.updateProject, (req, res) => {
-    return res.status(200).json(res.locals.updatedProject);
-});
+// router.post('/', projectController.updateProject, (req, res) => {
+//     return res.status(200).json(res.locals.updatedProject);
+// });
 
-router.delete('/', projectController.deleteTask, projectController.getProjects, (req, res) => {
-    return res.status(200).json(res.locals.projectData);
-});
+// router.delete('/', projectController.deleteTask, projectController.getProjects, (req, res) => {
+//     return res.status(200).json(res.locals.projectData);
+// });
 
 
 module.exports = router;

@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 require('dotenv').config();
+// import { ObjectId } from 'mongodb';
 
 const MONGO_URI = process.env.MONGO_DB_URI;
 
@@ -7,7 +8,7 @@ mongoose.connect(MONGO_URI, {
   useUnifiedTopology: true,
   dbName: 'proTracks_user'
 })
-  .then(() => console.log('Connected to Mongo DB'))
+  .then(() => console.log('(User) Connected to Mongo DB'))
   .catch(err => console.log(err));
 
 const Schema = mongoose.Schema;

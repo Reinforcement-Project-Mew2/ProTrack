@@ -8,7 +8,7 @@ mongoose.connect(MONGO_URI, {
     useUnifiedTopology: true,
     dbName: 'proTracks_session'
   })
-    .then(() => console.log('Connected to Mongo DB'))
+    .then(() => console.log('(Session) Connected to Mongo DB'))
     .catch(err => console.log(err));
 
 const sessionSchema = new Schema({

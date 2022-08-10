@@ -1,16 +1,15 @@
 const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 require('dotenv').config();
 
 const MONGO_URI = process.env.MONGO_DB_URI;
 
 mongoose.connect(MONGO_URI, {
-  useUnifiedTopology: true,
-  dbName: 'proTracks_project'
-})
-  .then(() => console.log('Connected to Mongo DB'))
-  .catch(err => console.log(err));
-
-const Schema = mongoose.Schema;
+    useUnifiedTopology: true,
+    dbName: 'proTracks_project'
+  })
+    .then(() => console.log('(Project) Connected to Mongo DB'))
+    .catch(err => console.log(err));
 
 const projectSchema = new Schema({
   project_id: { 

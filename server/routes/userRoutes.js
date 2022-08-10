@@ -11,13 +11,13 @@ router.post('/', userController.createUser, (req, res) => {
     return res.status(200).json(res.locals.user);
 });
 
-router.post('/', userController.updateUser, (req, res) => {
-    return res.status(200).json(res.locals.updatedUser);
-});
+// router.post('/', userController.updateUser, (req, res) => {
+//     return res.status(200).json(res.locals.updatedUser);
+// });
 
-router.delete('/', userController.deleteUser, (req, res) => {
-    return res.status(200).json(res.locals.deleteUser);
-});
+// router.delete('/', userController.deleteUser, (req, res) => {
+//     return res.status(200).json(res.locals.deleteUser);
+// });
 
 
 module.exports = router;

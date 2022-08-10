@@ -50,7 +50,7 @@ const dashboard = () => {
                     task_created_by: "Johnny",
                     task_members: "Johnny, Dennis, Angel, Matthew, Jace",
                     task_content: "time to feed the world",
-                    task_start_date: "08/09/2022",
+                    task_start_date: "08/10/2022",
                     task_end_date: "08/09/2122"
                 }
             ]
@@ -59,21 +59,32 @@ const dashboard = () => {
 
      let timelineData = [
         {
-            text: 'Wrote my first blog post ever on Medium',
-            date: 'March 03 2017',
+            text: 'Get some Cows',
+            date: 'August 09, 2022',
             category: {
-                tag: 'medium',
+                tag: 'Task',
                 color: '#018f69'
             },
             link: {
                 url:
-                    'https://medium.com/@popflorin1705/javascript-coding-challenge-1-6d9c712963d2',
-                text: 'Read more'
+                    'https://www.google.com/search?q=cows&tbm=isch&ved=2ahUKEwjmkd_ZtL35AhVQHTQIHZm0BX8Q2-cCegQIABAA&oq=cows&gs_lcp=CgNpbWcQAzIECAAQQzIHCAAQsQMQQzIHCAAQsQMQQzIHCAAQsQMQQzIECAAQQzIHCAAQsQMQQzIHCAAQsQMQQzIECAAQQzIECAAQQzIICAAQgAQQsQM6BAgjECc6BQgAEIAEOgsIABCABBCxAxCDAVCQBljfCGCXCWgAcAB4AIABVYgBswKSAQE0mAEAoAEBqgELZ3dzLXdpei1pbWfAAQE&sclient=img&ei=OT30YqaRI9C60PEPmemW-Ac&bih=1297&biw=2560&rlz=1C1VDKB_enUS928US928',
+                text: 'Read more about Cows'
             }
         },
+
         {
-            // Another object with data
-        }
+            text: 'Make a lot of Cheese',
+            date: 'August 10, 2022',
+            category: {
+                tag: 'Task',
+                color: '#018f69'
+            },
+            link: {
+                url:
+                    'https://www.google.com/search?q=cheese&hl=en&tbm=isch&sxsrf=ALiCzsZGErPvVIk4zy9xAXkTjMdGhvdc9A%3A1660174208073&source=hp&biw=2560&bih=1297&ei=fz_0YtTSO4KckPIPhouL2AY&iflsig=AJiK0e8AAAAAYvRNkI9VLrP_UXHrHpnzVHQdSval2aiv&ved=0ahUKEwiUjrrvtr35AhUCDkQIHYbFAmsQ4dUDCAc&uact=5&oq=cheese&gs_lcp=CgNpbWcQAzIICAAQgAQQsQMyCAgAEIAEELEDMggIABCABBCxAzIICAAQgAQQsQMyCAgAEIAEELEDMggIABCABBCxAzIICAAQgAQQsQMyCAgAEIAEELEDMggIABCABBCxAzIICAAQgAQQsQM6BwgjEOoCECc6BAgjECc6CwgAEIAEELEDEIMBOgUIABCABDoICAAQsQMQgwFQQVjUBmDBB2gBcAB4AIABUogBugOSAQE2mAEAoAEBqgELZ3dzLXdpei1pbWewAQo&sclient=img',
+                text: 'Read more about Cheese'
+            }
+        },
     ];
 
 
@@ -112,6 +123,7 @@ const dashboard = () => {
         tasks = {tasks}
         ></Tasklist> 
         <Timeline
+        timelineData = {timelineData}
         projectName = {project_name} 
         projectCreatedBy = {project_created_by} 
         projectMembers = {project_members}

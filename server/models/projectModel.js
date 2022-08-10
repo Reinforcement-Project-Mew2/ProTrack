@@ -17,24 +17,24 @@ const projectSchema = new Schema({
   project_members: Array,
   project_description: String,
   project_start_date: { type: Date, default: Date.now },
-  project_end_date: { type: Date},
+  project_end_date: Date,
   tasks: [{
     task_id: String,
-    task_name: { type: String },
-    task_created_by: { type: String },
+    task_name: String,
+    task_created_by: String,
     task_members: Array,
     task_content: String,
-    task_start_date: { type: Date, default: Date.now },
+    task_start_date: Date,
     task_end_date: Date,
-    sub_tasks: {
-      sub_task_id: {
-        sub_task_name: { type: String },
+    sub_tasks: [{
+        sub_task_id: {
+        sub_task_name: String ,
         sub_task_members: Array,
         sub_content: String,
-        sub_task_start_date: { type: Date },
+        sub_task_start_date: Date,
         sub_task_end_date: Date,
       }
-    }
+    }]
   }]
 });
 

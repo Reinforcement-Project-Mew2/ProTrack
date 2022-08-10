@@ -10,9 +10,9 @@ const createErr = (errInfo) => {
     };
 };
 
-const taskController = {};
+const taskControllers = {};
   
-taskController.getTasks = (req, res, next) => {
+taskControllers.getTasks = (req, res, next) => {
   const { project_id } = req.body;
   User.find({ _id: project_id }, (err, project) => {
     if (err) return next(createErr(err));
@@ -21,24 +21,24 @@ taskController.getTasks = (req, res, next) => {
   })
 }
 
-taskController.createTask = (req, res, next) => {
+taskControllers.createTask = (req, res, next) => {
   const { project_id, task_id, task_name, task_created_by, task_members, task_content, task_start_date, task_end_date } = req.body;
+  console.log('here')
   Project.findByIdAndUpdate({
     _id: project_id,
-    task: [
-    {
+    $task: [{
       task_id: task_id,
-      task_name: task_name,
-      task_created_by: task_created_by,
-      task_members: task_members,
-      task_content: task_content,
-      task_start_date: task_start_date,
-      task_end_date: task_end_date
-    },
-    ]
+      $task_name: task_name,
+      $task_created_by: task_created_by,
+      $task_members: task_members,
+      $task_content: task_content,
+      $task_start_date: task_start_date,
+      $task_end_date: task_end_date
+    }]
   })
   .then(data => {
-  res.locals.task = data;
+  console.log(data);
+  res.locals.newTask = data;
   next();
   })
   .catch(err => {
@@ -46,20 +46,20 @@ taskController.createTask = (req, res, next) => {
   })
 };
 
-taskController.updateTask = (req, res, next) => {
+taskControllers.updateTask = (req, res, next) => {
   const { project_id, task_name, task_created_by, task_members, task_content, task_start_date, task_end_date } = req.body;
   const { task_id } = req.params;
-  Project.findByIdAndUpdate({
-    _id: project_id,
+  Project.findOneAndUpdate({ _id: project_id },
+    {_id: project_id,
     task: [
     {
-      task_id: task_id,
-      task_name: task_name,
-      task_created_by: task_created_by,
-      task_members: task_members,
-      task_content: task_content,
-      task_start_date: task_start_date,
-      task_end_date: task_end_date
+      $task_id: task_id,
+      $task_name: task_name,
+      $task_created_by: task_created_by,
+      $task_members: task_members,
+      $task_content: task_content,
+      $task_start_date: task_start_date,
+      $task_end_date: task_end_date
     },
     ]
   })
@@ -72,7 +72,7 @@ taskController.updateTask = (req, res, next) => {
   })
 };
 
-taskController.deleteTask = (req, res, next) => {
+taskControllers.deleteTask = (req, res, next) => {
   const { project_id, task_id } = req.body;
   Project.findByIdAndDelete({ _id: project_id, task: { task_id: task_id } })
   .then(data => {
@@ -85,4 +85,4 @@ taskController.deleteTask = (req, res, next) => {
 }
 
 
-module.exports = taskController;
+module.exports = taskControllers;

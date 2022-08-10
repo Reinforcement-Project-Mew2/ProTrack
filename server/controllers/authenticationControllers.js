@@ -70,8 +70,8 @@ const sessionController = {
 };
 
 
-const githubController = {
+// const githubController = {
 
-}; 
+// }; 
 
-module.exports = { cookieController, sessionController, githubController };
+module.exports = { cookieController, sessionController };

@@ -25,12 +25,21 @@ projectController.getProjects = (req, res, next) => {
 }
 
 projectController.createProject = (req, res, next) => {
-  const { project_name, project_created_by, project_members, project_description, project_start_date, project_end_date } = req.body;
+  console.log('check');
+  const { project_name, project_created_by, project_members, 
+    project_description, project_start_date, 
+    project_end_date, tasks } = req.body;
   
-  Project.create({project_name,project_created_by, project_members, 
-    project_description, project_start_date, project_end_date})
+  Project.create({project_name: project_name,
+   project_created_by: project_created_by,
+   project_members: project_members, 
+   project_description: project_description, 
+   project_start_date: project_start_date, 
+   project_end_date: project_end_date,
+   tasks: tasks
+  })
   .then(data => {
-    res.locals.newProject = data._id;
+    res.locals.newProject = data;
     next();
   })
   .catch(err => {
@@ -39,7 +48,7 @@ projectController.createProject = (req, res, next) => {
 };
 
 projectController.updateProject = (req, res, next) => {
-  const { _id, changes } = req.body;
+  const { _id } = req.params;
   const filterRequest = { _id };
   Project.findOneAndUpdate(filterRequest, { changes })
 }

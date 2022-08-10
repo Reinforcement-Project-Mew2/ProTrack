@@ -1,3 +1,6 @@
+import { Request, Response, NextFunction } from "express";
+import { ServerError } from "./types";
+
 const express = require('express');
 const app = express();
 const path = require('path');
@@ -23,13 +26,21 @@ app.use(cookieParser());
 
 app.use('/src', express.static(path.resolve(__dirname, '../src')));
 
+const projectRoutes = require('./routes/projectRoutes');
+const taskRoutes = require('./routes/taskRoutes');
+const userRoutes = require('./routes/userRoutes');
+
+
+app.use("/project", projectRoutes);
+app.use("/tasks", taskRoutes);
+app.use("/signIn", )
 
 // catch-all route handler for any requests to an unknown route
 app.use((req, res) => res.status(404).send('Page does not exist.'));
 
 // global error handler
 app.use((err, req, res, next) => {
-  const defaultErr = {
+  const defaultErr= {
     log: 'Express error handler caught unknown middleware error',
     status: 500,
     message: { err: 'An error occurred' },

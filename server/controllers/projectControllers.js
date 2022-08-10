@@ -14,11 +14,11 @@ const createErr = (errInfo) => {
 const projectController = {};
 
 projectController.getProjects = (req, res, next) => {
-
+ 
 }
 
 projectController.createProject = (req, res, next) => {
-
+  const { } = req.body;
 }
 
 projectController.updateProject = (req, res, next) => {

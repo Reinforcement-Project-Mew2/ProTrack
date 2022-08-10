@@ -6,8 +6,8 @@
 body {
     background-image: url("../assets/Mewtwo.jpg");
     background-size: cover;
-    }
-    
+}
+
 .home {
     margin: auto;
     width: 50%;
@@ -21,18 +21,71 @@ body {
     text-align: center;
 }
 
-.nav{
-border: 3px solid black;
-height:3em;
-width: 3em;
+.nav {
+    border: 3px solid black;
+    height: 3em;
+    width: 3em;
 }
 
-.timeline{
+.sidebar {
+    border: 3px solid black;
+    height: 100%;
+    width: 200px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #232323;
+    transition: .5s ease;
+    overflow-x: hidden;
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: auto;
+}
+
+.sidebar-item {
+    padding: .75em 1em;
+    display: block;
+    transition: background-color .15s;
+}
+.sidebar-item:hover {
+    background-color: rgba(255, 255, 255, .1);
+}
+
+.sidebar-title {
+    display: flex;
+    font-size: 1.2em;
+    justify-content: space-between;
+}
+
+.sidebar-title span i{
+    display: inline-block;
+    width: 1.5em;
+}
+
+.sidebar-title .toggle-btn {
+    cursor: pointer;
+    transition: transform .3s;
+}
+
+.sidebar-item.open .sidebar-title .toggle-btn {
+    transform: rotate(180deg);
+}
+
+.sidebar-content {
+    padding-top: .25em;
+    height: 0;
+    overflow: hidden;
+}
+
+.sidebar-item.open .sidebar-content {
+    height: auto;
+}
+
+.timeline {
     border: 3px solid black;
     height: 30em;
     overflow: scroll;
-    }
-
-
-
-
+}

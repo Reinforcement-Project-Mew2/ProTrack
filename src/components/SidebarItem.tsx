@@ -19,7 +19,9 @@ const SidebarItem = () => {
             <div className="sidebar-content">
                 ProTrack
             </div>
+            
         </div>
+        
     )
 }
 

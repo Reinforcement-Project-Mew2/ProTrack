@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 require('dotenv').config();
 
 const MONGO_URI = process.env.mongodbURL;
-console.log(process.env.mongodbURL)
+
 mongoose.connect(MONGO_URI, {
   useUnifiedTopology: true,
   dbName: 'proTracks_user'

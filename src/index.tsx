@@ -1,14 +1,17 @@
 import * as React from 'react';
-import * as ReactDOM from 'react-dom';
-import App from './App';
+import { createRoot } from 'react-dom/client';
 import { BrowserRouter } from "react-router-dom";
+import App from './App';
 import Login from "./components/Login";
 import Signup from "./components/Signup"
 import Dashboard from "./components/Dashboard"
 import { Routes, Route} from "react-router-dom";
 import './styles.scss';
 
-ReactDOM.render(
+const container = document.getElementById('root');
+const root = createRoot(container!);
+
+root.render(
     <BrowserRouter>
         <Routes>
             <Route path="/" element={<App />}>
@@ -23,8 +26,5 @@ ReactDOM.render(
                 />
             </Route>
         </Routes>
-
-    </BrowserRouter>,
-
-    document.getElementById('root')
+    </BrowserRouter>
 );

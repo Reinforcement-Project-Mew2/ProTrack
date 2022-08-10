@@ -13,10 +13,10 @@ const createErr = (errInfo) => {
 /**
  ** setCookie: 
  *  What: setting cookie for testing
- *  When: User first land on the page '/'
+ *  When: user first land on the page '/'
  ** setSSIDCookie
- *  What: Cookie of a user's ID for validation 
- *  When: User signup or login
+ *  What: cookie of a user's ID for validation 
+ *  When: user signup or login
  */ 
 const cookieController = {
   setCookie: (req, res, next) => {
@@ -31,12 +31,20 @@ const cookieController = {
   },
 };
 
+
+/**
+ * * Additional Cookie Setup 
+ *    1) Identify recurring user on a site without needing to log in (should expire) 
+ *    2) Maintain user setting information without login needed
+ */
+
+
 /**
  ** startSession 
- *  What: Create a new session
- *  When: User login
+ *  What: create a new session
+ *  When: user login
  ** isLoggedIn 
- *  What: Search DB for the appropriate(valid) session that matches
+ *  What: search DB for the appropriate(valid) session that matches
  *  When: 
  */ 
 const sessionController = {

@@ -1,18 +1,26 @@
+$scrollbar: rgba(230, 230, 235, 0.884);
+$scrollbar-background: rgba(107, 104, 104, 0);
+$primaryFontColor: white;
+$primaryFontFamily: Arial, Helvetica, sans-serif;
+$primaryBackground: rgba(143, 134, 134, 0.658);
+
+
 * {
-    font-family: Arial, Helvetica, sans-serif;
-    color: white;
+    font-family: $primaryFontFamily;
+    color: $primaryFontColor;
 }
 
 body {
     background-image: url("../assets/Mewtwo.jpg");
     background-size: cover;
     }
-    
+
 .home {
     margin: auto;
     width: 50%;
     border: 3px solid black;
     text-align: center;
+    margin-bottom: 1.5em;
 }
 
 .loginContainer {
@@ -21,18 +29,76 @@ body {
     text-align: center;
 }
 
-.nav{
+.nav {
 border: 3px solid black;
-height:3em;
-width: 3em;
+height:30%;
+width: 30%;
 }
 
-.timeline{
+.navText {
+position:relative;
+font-size: 1.5em;
+margin: 1%;
+}
+
+.timeline {
+    position:fixed;
     border: 3px solid black;
-    height: 30em;
-    overflow: scroll;
+    // resize:both;
+    height: 70%;
+    width: 55%;
+}
+
+.deadline {
+    position:fixed;
+    background-color:rgba(0, 0, 0, 0.445);
+    width: 15%;
+    height: 60%;
+    bottom: 22%;
+}
+
+.tasklist {
+    position:fixed;
+    background-color:rgba(0, 0, 0, 0.445);
+    width: 30%;
+    height: 60%;
+    left:42%;
+    bottom:22%;
+    overflow-y: scroll;
+}
+
+.timelineContainer {
+    position:fixed;
+    margin-top: 3em;
+    left:25%;
+    top:10%;
+    
+    ::-webkit-scrollbar {
+        width: 10px;               /* width of the entire scrollbar */
     }
+    ::-webkit-scrollbar-track {
+        background: $scrollbar-background;        /* color of the tracking area */
+      }
+      ::-webkit-scrollbar-thumb {
+        background-color: $scrollbar;    /* color of the scroll thumb */
+        border-radius: 20px;       /* roundness of the scroll thumb */
+        border: 3px solid $scrollbar;  /* creates padding around scroll thumb */
+      }
+}
 
+.addTaskButton {
+position:relative;
+width:6em;
+height:2em;
+left: 40%;
+top: 2.5%;
+color: $primaryFontColor;
+background-color:$primaryBackground;
 
+&:hover {
+    cursor:pointer;
+    color:black;
+}
 
+}
 

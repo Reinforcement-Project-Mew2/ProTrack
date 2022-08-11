@@ -1,23 +1,23 @@
 const express = require('express');
-const taskController = require('../controllers/taskControllers');
+const taskControllers = require('../controllers/taskControllers');
 
 const router = express.Router();
 
-// router.get('/:id', taskController.getTasks, (req, res) => {
-//     return res.status(200).json(res.locals.taskData);
-// });
+router.get('/', taskControllers.getTasks, (req, res) => {
+    return res.status(200).json(res.locals.taskData);
+});
 
-// router.post('/', taskController.createTask, (req, res) => {
-//     return res.status(200).json(res.locals.newTask);
-// });
+router.post('/', taskControllers.createTask, (req, res) => {
+    return res.status(200).json(res.locals.newTask);
+});
 
-// router.post('/', taskController.updateTask, (req, res) => {
+// router.post('/:id', taskController.updateTask, (req, res) => {
 //     return res.status(200).json(res.locals.updatedTask);
 // });
 
-// router.delete('/', taskController.deleteTask, taskController.getTasks, (req, res) => {
-//     return res.status(200).json(res.locals.taskData);
-// });
+router.delete('/', taskControllers.deleteTask, taskControllers.getTasks, (req, res) => {
+    return res.status(200).json(res.locals.taskData);
+});
 
 
 module.exports = router;

@@ -16,6 +16,7 @@ const Login = () => {
             <Link to='/signup' id='signuplink'>
                 <p>Create new account</p>
             </Link>
+            <a href="https://localhost:3000/user/">Login with GitHub</a>
         </div>
         </div>
     )

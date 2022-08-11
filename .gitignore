@@ -1,4 +1,8 @@
 .env
+<<<<<<< HEAD
+node_modules
+=======
 node_modules
 .package-lock.json
 .env.sample
+>>>>>>> dev

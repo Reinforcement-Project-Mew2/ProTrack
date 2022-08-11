@@ -29,6 +29,14 @@ body {
     text-align: center;
 }
 
+input, select, textarea{
+    color: black;
+}
+
+textarea:focus, input:focus {
+    color: black;
+}
+
 .nav {
 border: 3px solid black;
 height:30%;

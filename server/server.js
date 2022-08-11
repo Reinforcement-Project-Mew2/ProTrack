@@ -3,6 +3,7 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const mongoose = require('mongoose');
 const cors = require("cors");
+var csrf = require('csurf')
 
 const app = express();
 const PORT = 3000;
@@ -13,15 +14,16 @@ const userRoutes = require('./routes/userRoutes');
 const { cookieController, sessionController } = require('./controllers/authenticationControllers');
 
 app.use(cors())
-app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use('/src', express.static(path.resolve(__dirname, '../src')));
+// app.use(csrf({ cookie: true }));
+app.use(cookieParser());
 
 // Create a new Project 
-app.get('/', cookieController.setCookie, (req, res) => {
-  res.sendFile(path.resolve(__dirname, '../index.html'))
-});
+// app.get('/', cookieController.setCookie, (req, res) => {
+//   res.sendFile(path.resolve(__dirname, '../index.html'))
+// });
  
 app.use("/project", projectRoutes);
 app.use("/tasks", taskRoutes);

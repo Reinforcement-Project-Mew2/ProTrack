@@ -11,21 +11,21 @@ const createErr = (errInfo) => {
 };
 
 
-const projectController = {};
+const projectControllers = {};
 
-projectController.getProjects = (req, res, next) => {
+projectControllers.getProjects = (req, res, next) => {
   //request is a array of users project ids
-  const { userProjectIds } = req.body
+  const { username } = req.body
   //find all matching ids and return them
-  Project.find( { '_id': { $in: usersProjectIds}}, (err,projectList) => {
+  Project.find({}, (err,projectList) => {
     if(err) return next(createErr(err));
     res.locals.projectData = projectList;
     return next();
   })
 }
 
-projectController.createProject = (req, res, next) => {
-  console.log('check');
+projectControllers.createProject = (req, res, next) => {
+
   const { project_name, project_created_by, project_members, 
     project_description, project_start_date, 
     project_end_date, tasks } = req.body;
@@ -47,13 +47,13 @@ projectController.createProject = (req, res, next) => {
   })
 };
 
-projectController.updateProject = (req, res, next) => {
+projectControllers.updateProject = (req, res, next) => {
   const { _id } = req.params;
   const filterRequest = { _id };
   Project.findOneAndUpdate(filterRequest, { changes })
 }
 
-projectController.deleteProject = (req, res, next) => {
+projectControllers.deleteProject = (req, res, next) => {
   const { _id } = req.body;
   const deleteId = { _id };
   Project.deleteOne(deleteId)
@@ -67,4 +67,4 @@ projectController.deleteProject = (req, res, next) => {
 }
 
 
-module.exports = projectController;
+module.exports = projectControllers;

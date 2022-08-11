@@ -26,15 +26,15 @@ const projectSchema = new Schema({
     task_content: String,
     task_start_date: Date,
     task_end_date: Date,
-    sub_tasks: {
-      sub_task_id: {
+    sub_tasks: [{
+        sub_task_id: {
         sub_task_name: String ,
         sub_task_members: Array,
         sub_content: String,
         sub_task_start_date: Date,
         sub_task_end_date: Date,
       }
-    }
+    }]
   }]
 });
 

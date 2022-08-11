@@ -1,0 +1,27 @@
+{
+    project_name: "Johnny's wonderful world",
+    project_created_by: "Your boi, Johnny",
+    project_members: "Johnny, Dennis, Angel, Matthew, Jace",
+    project_description: "Conquer the world, give everyone cheese",
+    project_start_date: "08/09/2022",
+    project_end_date: "08/09/2122",
+    tasks: [{   
+            task_id: 1235456,
+            task_name: "Get some cows",
+            task_created_by: "Johnny",
+            task_members: "Johnny, Dennis, Angel, Matthew, Jace",
+            task_content: "start at the source",
+            task_start_date: "08/09/2022",
+            task_end_date: "08/09/2122"
+        },
+        {
+            task_id: 1235456,
+            task_name: "Make a lot of cheese",
+            task_created_by: "Johnny",
+            task_members: "Johnny, Dennis, Angel, Matthew, Jace",
+            task_content: "time to feed the world",
+            task_start_date: "08/09/2022",
+            task_end_date: "08/09/2122"
+        }
+    ]
+}

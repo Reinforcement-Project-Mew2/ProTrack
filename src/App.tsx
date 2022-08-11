@@ -2,21 +2,21 @@ import * as React from 'react';
 import { Routes, Route, Link, Outlet } from "react-router-dom";
 import './styles.scss';
 
-function App () {
-        return (
+const App = () => {
+    return(
         <main>
             <div className = 'loginContainer'>
-                <h1 className = "home">Welcome to ProTrack! Please Sign in</h1>
-                <nav>
-                    <Link to="/dashboard">
+                <h1 className = "home">Welcome to ProTrack!</h1>
+                <nav >
+                    <Link className = "navText" to="/dashboard">
                     Dashboard
                     </Link>{' '}
                     |{' '}
-                    <Link to="/login">
+                    <Link className = "navText" to="/login">
                     Login
                     </Link>{' '}
                     |{' '}
-                    <Link to="/signup">
+                    <Link className = "navText" to="/signup">
                     Sign Up
                     </Link>
                     <Outlet/>
@@ -25,4 +25,5 @@ function App () {
         </main>
         )
     }
+
       export default App;

@@ -10,7 +10,7 @@ const ProjectDetails = ({detail}) => {
     const tasksItems = Object.values(detail.tasks).map((task, index) => {
         return(
             <div className="sidebar-content" key={index}>
-                {task.title}
+                {task.task_name}
             </div>
         )
     })
@@ -19,7 +19,6 @@ const ProjectDetails = ({detail}) => {
         <div className={open ? "sidebar-item open" : "sidebar-item"}>
             <div className="sidebar-title">
                 <span>
-                    <i className={detail.icon}></i>
                     {detail.project_name}
                 </span>
                     <i className={`bi ${open ? "bi-chevron-up" : "bi-chevron-down"} toggle-btn`} onClick={() => setOpen(!open)}></i>

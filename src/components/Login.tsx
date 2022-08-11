@@ -6,7 +6,7 @@ const Login = () => {
 
     return (
         <div className = "loginContainer">
-        <div id='loginBox'>
+        <div className='loginBox'>
             <label><strong>Log In</strong></label><br/>
             <form method='POST' action='/api/login'>
                 <input type='text' placeholder='Username' name='username' required></input>

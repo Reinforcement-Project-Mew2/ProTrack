@@ -1,6 +1,6 @@
 {
     "234523234": { 
-        "project_name": "Johnny's wonderful world",
+        "name": "Johnny's wonderful world",
         "project_created_by": "Your boi, Johnny",
         "project_members": "Johnny, Dennis, Angel, Matthew, Jace",
         "project_description": "Conquer the world, give everyone cheese",
@@ -8,7 +8,7 @@
         "project_end_date": "08/09/2122",
         "tasks": {
             "432423": {
-                "task_name": "Get some cows",
+                "name": "Get some cows",
                 "task_created_by": "Johnny",
                 "task_members": "Johnny, Dennis, Angel, Matthew, Jace",
                 "task_content": "start at the source",

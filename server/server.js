@@ -11,7 +11,7 @@ const PORT = 3000;
 const taskRoutes = require('./routes/taskRoutes');
 const projectRoutes = require('./routes/projectRoutes');
 const userRoutes = require('./routes/userRoutes');
-const { cookieController, sessionController } = require('./controllers/authenticationControllers');
+// const { cookieController, sessionController } = require('./controllers/authenticationControllers');
 
 app.use(cors())
 app.use(express.json());

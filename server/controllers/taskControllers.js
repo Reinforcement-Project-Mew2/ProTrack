@@ -24,20 +24,21 @@ taskControllers.getTasks = (req, res, next) => {
 taskControllers.createTask = (req, res, next) => {
   const { project_id, task_id, task_name, task_created_by, task_members, task_content, task_start_date, task_end_date } = req.body;
   console.log('here')
-  Project.findByIdAndUpdate({
-    _id: project_id,
-    $task: [{
-      task_id: task_id,
-      $task_name: task_name,
-      $task_created_by: task_created_by,
-      $task_members: task_members,
-      $task_content: task_content,
-      $task_start_date: task_start_date,
-      $task_end_date: task_end_date
+  Project.updateOne({
+    _id: project_id},{
+    $push: { 
+      tasks: [{
+        task_id: task_id,
+        task_name: task_name,
+        task_created_by: task_created_by,
+        task_members: task_members,
+        task_content: task_content,
+        task_start_date: task_start_date,
+        task_end_date: task_end_date
     }]
+  }
   })
   .then(data => {
-  console.log(data);
   res.locals.newTask = data;
   next();
   })
